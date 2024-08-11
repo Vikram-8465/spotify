@@ -1,0 +1,70 @@
+<template>
+    <template lwc:if={playlistInfo}>
+        <div class="container">
+            <div class="header">
+                <div class="image">
+                    <img src={playlistInfo.imageUrl} alt="image">
+                </div>
+                <div>
+                    <p>{playlistInfo.type}</p>
+                    <h1>{playlistInfo.name}</h1>
+                    <p>{playlistInfo.description}</p>
+                    <p>Total : {playlistInfo.songsCount} songs</p>
+                </div>
+            </div>
+            <div class="songs-table">
+                <div class="table-header">
+                    <div class="play">
+                        <img src={spotifySvgs.play} alt="play" onclick={playSongsListHandler}>
+                    </div>
+                    <div>
+                        <p>type : {playlistInfo.type}</p>
+                        <p>total : {playlistInfo.songsCount}</p>
+                    </div>
+
+                </div>
+                <table class="styled-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Title</th>
+                            <th>Album</th>
+                            <th>Language</th>
+                            <th>Duration</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <template for:each={playlistSongs} for:item="song">
+                            <tr key={song.id} data-id={song.id} onclick={playHandler}>
+                                <td>{song.number}</td>
+                                <td>
+                                    <div class="song-title">
+                                        <div class="image">
+                                            <img src={song.imageUrl} alt="image" />
+                                        </div>
+                                        <div class="title">
+                                            <p>{song.title}</p>
+                                            <p>{song.artist}</p>
+                                        </div>
+                                    </div>
+
+                                </td>
+                                <td>
+                                    <div class="album">
+                                        <p>{song.album}</p>
+                                        <img src={spotifySvgs.love} alt="love" onclick={loveHandler}>
+                                    </div>
+                                </td>
+                                <td>{song.language}</td>
+                                <td>{song.duration}</td>
+                            </tr>
+                        </template>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </template>
+    <template lwc:else>
+        <lightning-spinner class="spinner" alternative-text="Loading" size="small"></lightning-spinner>
+    </template>
+</template>

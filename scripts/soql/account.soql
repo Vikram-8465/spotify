@@ -1,0 +1,7 @@
+SELECT Id, Name, Description__c, 
+    (SELECT Id, ContentDocumentId, 
+        (SELECT Id FROM ContentVersions WHERE FileExtension = 'jpg') 
+     FROM ContentDocumentLinks 
+     WHERE ContentDocument.LatestPublishedVersion.FileExtension = 'jpg') 
+FROM Playlist__c
+

@@ -1,0 +1,44 @@
+<template>
+    <div class="home">
+        <div class="logo">
+            <img class="invert" src={spotifySvgs.logo} alt="logo">
+        </div>
+        <ul>
+            <li class="slds-grid"><img class="invert" src={spotifySvgs.home} alt="home">Home</li>
+            <li class="slds-grid search"><img class="invert" src={spotifySvgs.search} alt="search">Search</li>
+        </ul>
+    </div>
+    <div class="library">
+        <div class="heading slds-grid slds-grid_align-spread slds-vertical-align_center">
+            <img class="invert" src={spotifySvgs.playlist} alt="playlist">
+            <h2>
+                Your Library
+            </h2>
+            <div class="plus">
+                <img class="invert" src={spotifySvgs.plus} alt="plus">
+            </div>
+        </div>
+
+        <div class="songs-list">
+            <div class="song">
+                <img class="music" src={spotifySvgs.music} alt="music">
+                <div>
+                    <div>title</div>
+                    <div>artist</div>
+                </div>
+                <span>play now</span>
+                <img class="play" src={spotifySvgs.play} alt="play">
+            </div>
+        </div>
+
+        <div class="footer slds-grid slds-wrap">
+            <div><a href="https://www.spotify.com/jp/legal/"><span>Legal</span></a></div>
+            <div><a href="https://www.spotify.com/jp/privacy/"><span>Privacy Center</span></a></div>
+            <div><a href="https://www.spotify.com/jp/legal/privacy-policy/"><span>Privacy Policy</span></a>
+            </div>
+            <div><a href="https://www.spotify.com/jp/legal/cookies-policy/"><span>Cookies</span></a></div>
+            <div><a href="https://www.spotify.com/jp/legal/privacy-policy/#s3"><span>About Ads</span></a></div>
+            <div><a href="https://www.spotify.com/jp/accessibility/"><span>Accessibility</span></a></div>
+        </div>
+    </div>
+</template>

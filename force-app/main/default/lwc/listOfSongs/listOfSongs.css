@@ -1,0 +1,266 @@
+.container {
+    position: relative;
+    height: 79vh;
+    overflow: auto;
+}
+
+.container::-webkit-scrollbar {
+    width: 10px; /* Width of the scrollbar */
+}
+
+.container::-webkit-scrollbar-track {
+    background: #1F1F1F; /* Track color */
+    border-radius: 10px; /* Rounded corners */
+}
+
+.container::-webkit-scrollbar-thumb {
+    background-color: #f3f3f321; /* Scrollbar thumb color */
+    border-radius: 10px; /* Rounded corners */
+    border: 2px solid #1F1F1F; /* Padding around scrollbar thumb */
+}
+
+.header {
+    display: flex;
+    gap: 20px;
+    padding-left: 17px;
+    margin: 5px 0;
+    background: linear-gradient(to bottom right, #002f4c, #0DD);
+    align-items: center;
+    padding: 10px;
+}
+
+.image {
+    height: 171px;
+    width: 208px;
+}
+
+.header img {
+    height: 100%;
+    width: 100%;
+    border-radius: 8px;
+    object-fit: contain;
+}
+
+.header p {
+    color: #f0f0f0c9;
+}
+
+.header p:first-of-type {
+    font-size: 0.9rem;
+    text-transform: capitalize;
+}
+
+.header h1{
+    font-size: 4vw;
+    font-weight: 600;
+    line-height: 5.9vw;
+    margin-top: -6px;
+}
+
+.table-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px;
+    background: linear-gradient(to top right, #002f4c, #0DD);
+    margin-top: -4px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.table-header img {
+    width: 25px;
+}
+
+.table-header .play {
+    width: 55px;
+    height: 50px;
+    background-color: #3AE176;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    padding-left: 2px;
+    cursor: pointer;
+}
+
+.table-header p{
+    font-size: 0.9rem;
+    color: #F0F0F0;
+    text-transform: capitalize;
+}
+
+/* Style the table */
+.styled-table {
+    width: 98%;
+    font-size: 0.8rem; /* Set font size */
+    text-align: left; /* Align text to the left */
+    margin: 0 10px;
+}
+
+/* Style table headings */
+.styled-table th {
+    color: #f0f0f0c9; /* White text */
+    padding: 12px; /* Add padding inside cells */
+}
+
+/* Style table rows */
+.styled-table td {
+    padding: 12px; /* Add padding inside cells */
+    color: #f0f0f0c9; 
+}
+
+th:first-child, td:first-child {
+    width: 5%; 
+}
+th:nth-child(2), td:nth-child(2) {
+    width: 45%; /* 30% of the table width */
+}
+th:nth-child(3), td:nth-child(2) {
+    width: 30%; /* 30% of the table width */
+}
+th:nth-child(4), td:nth-child(2) {
+    width: 10%; /* 30% of the table width */
+}
+th:last-child, td:last-child {
+    width: 10%; /* 20% of the table width */
+}
+
+/* Style table rows on hover */
+.styled-table tbody tr:hover {
+    background-color: #dddddd0a; /* Slightly darker background on hover */
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.styled-table tbody tr:hover .album img {
+    opacity: 1; /* Full opacity */
+    filter: invert(1);
+    cursor: pointer;
+}
+
+/* Style image container */
+.styled-table .image {
+    width: 45px; /* Set width */
+    height: 44px; /* Set height */
+    overflow: hidden; /* Hide overflow */
+    border-radius: 5%; /* Round image */
+    display: flex; /* Center image */
+    justify-content: center; /* Center image */
+    align-items: center; /* Center image */
+}
+
+/* Style images */
+.styled-table .image img {
+    width: 100%; /* Make image fill container */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: contain; 
+}
+
+/* Style title container */
+.styled-table .title {
+    padding-left: 10px; /* Add padding to the left */
+}
+
+.styled-table .title p {
+    margin: 0; /* Remove default margin */
+}
+
+.styled-table .title p:first-of-type {
+    color: #F3F3F3;
+}
+
+.styled-table .song-title{
+    display: flex;
+    align-items: center;
+}
+
+
+.styled-table .album img {
+    opacity: 0; 
+    height: 22px;
+    width: 20px;
+}
+
+.styled-table .album {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.spinner {
+    position :absolute !important;
+    top: 0% !important;
+    left: 14% !important;
+}
+
+@media (max-width: 420px) {
+   
+    .container .header {
+        flex-wrap: wrap;
+        justify-content: center;
+        font-size: 3.5vw;
+        gap: 4px
+
+    }
+
+    .container .header .image {
+      height: 165px;
+       width: 175px;
+    }
+
+    .songs-table .table-header .play {
+      height: 39px;
+      width: 43px;
+    }
+
+    .songs-table .table-header p {
+        font-size: 3.5vw;
+        color: #f0f0f0cf;
+      }  
+      
+    .spinner {
+        position :absolute !important;
+        top: 0% !important;
+        left: 4% !important;
+    }
+
+     /* Hide the Album, Language, and Duration columns */
+     .styled-table th:nth-child(3),
+     .styled-table th:nth-child(4),
+     .styled-table th:nth-child(5),
+     .styled-table td:nth-child(3),
+     .styled-table td:nth-child(4),
+     .styled-table td:nth-child(5) {
+         display: none;
+     }
+ 
+     /* Adjust the width of the visible columns */
+     th:first-child,
+     td:first-child {
+         width: 4%; /* Adjust as needed */
+         padding: 0;
+     }
+ 
+     th:nth-child(2),
+     td:nth-child(2) {
+         width: 95%; /* Adjust as needed */
+         padding: 0;
+     }
+ 
+     /* Further adjustments to the layout if necessary */
+     .styled-table {
+         width: 99%; /* Ensure the table fits the screen */
+         margin: 0 auto;
+         padding: 3px;
+     }
+ 
+     /* Adjust font size for smaller screens */
+     .styled-table th,
+     .styled-table td {
+         font-size: 3.5vw;
+     }
+ }
+
+
+
+

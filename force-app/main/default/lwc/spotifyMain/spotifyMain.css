@@ -1,0 +1,66 @@
+:host {
+    font-family: gilroy;
+    color: #F3F3F3;
+}
+
+.container {
+    background-color: black;
+}
+
+.left {
+    margin: 8px;
+    margin-right: 5px;
+    width: 20vw;
+}
+
+.right {
+    margin: 8px 0px;
+    margin-right: 8px;
+    width: 80vw;
+}
+
+        /* Screens narrower than 320px */
+    @media (max-width: 420px) {
+      
+        .left {
+            position: absolute;
+            left: -100%;
+            transition: all 0.5s;
+        }
+
+        .right {
+            width: 100%;
+        }
+        
+
+    }
+
+    /* Screens between 320px and 750px */
+    @media (min-width: 421px) and (max-width: 950px) {
+        .container {
+            position: relative;
+        }
+
+        .left {
+            position: absolute;
+            left: -100%;
+            transition: all 0.5s;
+        }
+
+        .right {
+            width: 100%;
+        }
+    }
+    @media (min-width: 951px) and (max-width: 1440px) {
+        .container {
+        
+        }
+
+        .left {
+            
+        }
+
+        .right {
+           
+        }
+    }

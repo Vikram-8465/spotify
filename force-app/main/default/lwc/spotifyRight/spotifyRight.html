@@ -1,0 +1,94 @@
+<template>
+    <div class="container">
+        <div class="header slds-grid slds-grid_align-spread">
+            <div class="nav">
+                <img class="invert leftImage" src={spotifySvgs.left} alt="left" onclick={leftHandler}>
+                <img class="invert rightImage" src={spotifySvgs.right} alt="right" onclick={rightHandler}>
+            </div>
+            <div class="buttons">
+                <button class="sign-up">Sign up</button>
+                <button class="login">Log in</button>
+            </div>
+        </div>
+
+        <template lwc:if={isListOfSongsOpen}>
+            <c-list-of-songs playlist-id={playlistId} onsongchange={songChangeHandler}></c-list-of-songs>
+        </template>
+        <template lwc:else>
+            <div class="spotify-playlist">
+                <div class="playlist-header slds-grid slds-grid_align-space slds-vertical-align_center">
+                    <h1>Spotify Playlists</h1>
+                    <div class="buttons slds-grid slds-grid_align-center">
+                        <button class="before-active after-active" onclick={clickHandler}>Trending</button>
+                        <button class="before-active" onclick={clickHandler}>Telugu</button>
+                        <button class="before-active" onclick={clickHandler}>Chill</button>
+                        <button class="before-active" onclick={clickHandler}>Love</button>
+                        <div>
+                            <input type="text" placeholder="Search Playlist" class="playlist-search">
+                            <button class="search-button" onclick={searchHandler}>Search</button>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="card-container slds-grid slds-wrap slds-grid_align-center slds-grid_vertical-align_center">
+                    <template for:each={songsData} for:item="item">
+                        <div class="card slds-col " key={item.id} data-id={item.id} onclick={playHandler}>
+                            <img src={item.imageUrl} alt="image">
+                            <h2>{item.name}</h2>
+                            <p>{item.type}</p>
+                            <p>{item.language}</p>
+                            <div class="play" onclick={playHandler} data-id={item.id}>
+                                <img src={spotifySvgs.play} alt="play">
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </template>
+
+        <div class="playbar">
+            <div class="song-info">
+                <template lwc:if={hasCurrentSong}>
+                    <div class="song-title">
+                        <div class="image">
+                            <img src={song.imageUrl} alt="image">
+                        </div>
+                        <div class="title">
+                            <p>{song.title}</p>
+                            <p>{song.artist}</p>
+                        </div>
+                    </div>
+                </template>
+
+                <div class="buttons slds-grid slds-grid_align-center slds-grid_vertical-align-center">
+                    <img src={spotifySvgs.prevsong} alt="prevsong" name="prev" onclick={songHandler}>
+                    <template lwc:if={isPlaying}>
+                        <img src={spotifySvgs.pause} alt="pause" name="pause" onclick={songHandler}>
+                    </template>
+                    <template lwc:else>
+                        <img src={spotifySvgs.play} alt="play" name="play" onclick={songHandler}>
+                    </template>
+                    <img src={spotifySvgs.nextsong} alt="nextsong" name="next" onclick={songHandler}>
+                    <div class="audio-control">
+                        <template lwc:if={isUnmuted}>
+                            <img src={spotifySvgs.unmute} alt="unmute" onclick={muteHandler} class="invert">
+                        </template>
+                        <template lwc:else>
+                            <img src={spotifySvgs.mute} alt="mute" onclick={muteHandler} class="invert">
+                        </template>
+                    </div>
+                    <template lwc:if={hasCurrentSong}>
+                        <div class="song-time">
+                            <p>{songTime}</p>
+                        </div>
+                    </template>
+                </div>
+
+            </div>
+            <div class="seekbar" onclick={seekbarHandler}>
+                <div class="circle"></div>
+            </div>
+        </div>
+        <div class="snackbar"></div>
+    </div>
+</template>
