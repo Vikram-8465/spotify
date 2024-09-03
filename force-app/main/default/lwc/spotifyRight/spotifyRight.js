@@ -121,9 +121,6 @@ export default class SpotifyRight extends LightningElement {
 
     songHandler(event) {
         const name = event.target.name;
-        console.log('Button clicked:', name);
-        console.log('Current song ID:', getCurrentSongId());
-        console.log('Playlist songs:', getPlaylistSongs());
 
         if (!getCurrentSongId() || !getPlaylistSongs() || getPlaylistSongs().length === 0) {
             console.error('Current song or playlist songs are not properly set');
