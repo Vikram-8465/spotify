@@ -1,5 +1,5 @@
 import { LightningElement, track } from 'lwc';
-import { getAudioInstance, setPlaylistSongs, getPlaylistSongs, setCurrentSongId, getCurrentSongId, getNextSongId, getPrevSongId, getSongById} from 'c/scriptUtils';
+import { getAudio, setPlaylistSongs, getPlaylistSongs, setCurrentSongId, getCurrentSongId, getNextSongId, getPrevSongId, getSongById } from 'c/scriptUtils';
 import SPOTIFY_SVGS from '@salesforce/resourceUrl/spotify_svgs';
 
 const ALL_SVGS = {
@@ -17,7 +17,7 @@ export default class SpotifyRight extends LightningElement {
      spotifySvgs = ALL_SVGS;
      playlistId;
      _songsData = [];
-     audio = getAudioInstance();
+     audio = getAudio();
      isListOfSongsOpen = false;
      isPlaying = true;
      isUnmuted = true;

@@ -1,5 +1,5 @@
 import { LightningElement, api , track } from 'lwc';
-import { getAudioInstance,setPlaylistSongs, getPlaylistSongs, setCurrentSongId, getSongById } from 'c/scriptUtils';
+import { getAudio,setPlaylistSongs, getPlaylistSongs, setCurrentSongId, getSongById } from 'c/scriptUtils';
 import SPOTIFY_SVGS from '@salesforce/resourceUrl/spotify_svgs';
 const ALL_SVGS = {
     play: `${SPOTIFY_SVGS}/img/play.svg`,
@@ -11,7 +11,7 @@ export default class ListOfSongs extends LightningElement {
     spotifySvgs = ALL_SVGS;
     playlistInfo;
     @track playlistSongs = [];
-    audio = getAudioInstance();
+    audio = getAudio();
     isPlaylistChanged = false;
     isSongPaused = false;
     isPlaylistSet = true;

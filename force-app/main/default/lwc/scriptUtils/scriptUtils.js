@@ -2,14 +2,12 @@
 
 let audioInstance = null;
 
-export function getAudioInstance() {
+export function getAudio() {
     if (!audioInstance) {
         audioInstance = new Audio();
     }
     return audioInstance;
 };
-
-
 
 // playlistUtils.js
 
