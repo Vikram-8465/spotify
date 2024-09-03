@@ -1,5 +1,4 @@
 // utils/audioService.js
-
 let audioInstance = null;
 
 export function getAudio() {
@@ -7,10 +6,9 @@ export function getAudio() {
         audioInstance = new Audio();
     }
     return audioInstance;
-};
+}
 
 // playlistUtils.js
-
 let playlistSongs = [];
 let currentSongId = null;
 
@@ -49,5 +47,3 @@ export function getPrevSongId() {
 export function getSongById(songId) {
     return playlistSongs.find(song => song.id === songId);
 }
-
-

@@ -222,6 +222,16 @@
     height: 20px;
 }
 
+.playbar .song-info .audio-control img[data-first] {
+   display: block;   
+}
+
+.playbar .song-info .audio-control img[data-two] {
+    display: none;   
+ }
+ 
+
+
 .playbar .song-info .image img {
     height: 100%;
     width: 100%;

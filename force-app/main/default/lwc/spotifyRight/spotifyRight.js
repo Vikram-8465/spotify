@@ -20,7 +20,7 @@ export default class SpotifyRight extends LightningElement {
      audio = getAudio();
      isListOfSongsOpen = false;
      isPlaying = true;
-     isUnmuted = true;
+    //  isUnmuted = true;
      hasCurrentSong = false;
      isDisplayNone = true;
      songTime = '00:00/ 00:00';
@@ -228,10 +228,25 @@ export default class SpotifyRight extends LightningElement {
         }
     }
 
-    muteHandler(){
-        if(this.audio.src){
+    muteHandler() {
+        if (this.audio.src) {
             this.audio.muted = !this.audio.muted;
-            this.isUnmuted = !this.isUnmuted;
+    
+            // Toggle visibility of images based on the audio's muted state
+            const unmuteImg = this.template.querySelector('.audio-control img[data-first]');
+            const muteImg = this.template.querySelector('.audio-control img[data-two]');
+    
+            if (unmuteImg && muteImg) {
+                if (this.audio.muted) {
+                    // Show mute image and hide unmute image
+                    unmuteImg.style.display = 'none';
+                    muteImg.style.display = 'block';
+                } else {
+                    // Show unmute image and hide mute image
+                    unmuteImg.style.display = 'block';
+                    muteImg.style.display = 'none';
+                }
+            }
         }
     }
     
